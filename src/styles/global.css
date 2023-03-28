@@ -1,0 +1,41 @@
+:root {
+  /* colors */
+  --background-primary-col: #818187;
+
+  --title-main-col: #1A1A1A;
+  --title-question-col: #333333;
+
+  --text-top-col: #4E4E4E;
+  --text-bot-col: #4F4F4F;
+  --text-bot-second-col: #CDCDCD;
+  --text-note-col: #343434;
+  --text-note-second-col: #D2D1F9;
+  --text-violet-col: #6A3AA2;
+  --text-gold-col: #F2C94C;
+
+  --common-btn-col: #EAEEF7;
+  --male-btn-col: #454895;
+  --female-btn-col: linear-gradient(125.02deg, #642B73 18.39%, #C6426E 81.83%);
+  --ghost-white-col: #FBFBFF;
+
+  --arrow-light-col: #FAFAFA;
+  --link-col: #8E8CF0;
+  --white-col: #FFFFFF;
+  --black-col: #000000;
+  --transparent-col: transparent;
+  --input-border-col: #C6C6C6;
+
+  --primary-gradient: linear-gradient(165.54deg, #141333 -33.39%, #202261 15.89%, #543C97 55.84%, #6939A2 74.96%);
+
+  /* values */
+  
+  --border-radius: 16px;
+  --btn-control-text-size: 18px; 
+  --btn-answer-text-size: 14px; 
+}
+
+html,
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+}
