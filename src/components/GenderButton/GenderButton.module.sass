@@ -1,17 +1,27 @@
 .male
-  --background: var(--male-btn-col)
+  --shadow-col: var(--male-btn-col)
 .female
-  --background: var(--female-btn-col)
-
-.button
-  display: flex
-  align-items: center
-  justify-content: space-between
-  gap: 20px
+  --shadow-col: var(--text-violet-col)
+  
+.genderBtn
+  max-width: 150px
   width: 100%
-  background: var(--background)
-  color: var(--white-col)
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border: none;
-  border-radius: 0px 0px var(--border-radius) var(--border-radius);
-  font-size: var(--btn-control-text-size)
+  border: none
+  border-radius: var(--border-radius)
+  background: transparent
+  transform: scale(1)
+  padding: 0
+  &:hover
+    cursor: pointer
+    animation: pulse 2s infinite
+
+@keyframes pulse
+  0%
+    transform: scale(0.95)
+    box-shadow: 0 0 0 0 var(--shadow-col)
+  70%
+    transform: scale(1)
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0)
+  100%
+    transform: scale(0.95)
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0)

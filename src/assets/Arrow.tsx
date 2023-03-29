@@ -16,5 +16,5 @@ const SVGComponent = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const LogoIcon = memo(SVGComponent);
-export default LogoIcon;
+const ArrowIcon = memo(SVGComponent);
+export default ArrowIcon;
