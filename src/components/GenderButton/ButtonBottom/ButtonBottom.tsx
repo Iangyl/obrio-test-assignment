@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { IButtonBottom } from './ButtonBottom.types';
 
 import styles from './ButtonBottom.module.sass';

@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react';
+import { MouseEventHandler } from 'react';
 
 import ManIcon from 'assets/Man';
 import WomanIcon from 'assets/Woman';

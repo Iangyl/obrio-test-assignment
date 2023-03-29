@@ -1,6 +1,6 @@
 :root {
   /* colors */
-  --background-primary-col: #818187;
+  --background-primary-col: #FFF0F0;
 
   --title-main-col: #1A1A1A;
   --title-question-col: #333333;
@@ -28,14 +28,24 @@
   --primary-gradient: linear-gradient(165.54deg, #141333 -33.39%, #202261 15.89%, #543C97 55.84%, #6939A2 74.96%);
 
   /* values */
-  
+
   --border-radius: 16px;
-  --btn-control-text-size: 18px; 
-  --btn-answer-text-size: 14px; 
+  --btn-control-text-size: 18px;
+  --btn-answer-text-size: 14px;
 }
 
 html,
 body {
   font-family: 'Open Sans', sans-serif;
   font-style: normal;
+}
+
+.wrapper {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.clickable {
+  cursor: pointer;
 }

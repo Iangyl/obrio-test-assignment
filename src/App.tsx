@@ -1,17 +1,15 @@
-import ArrowIcon from 'assets/Arrow';
-import ManIcon from 'assets/Man';
-import WomanIcon from 'assets/Woman';
-import ButtonBottom from 'components/GenderButton/ButtonBottom/ButtonBottom';
-import GenderButton from 'components/GenderButton/GenderButton';
-import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <GenderButton btnType="male" />
-      <GenderButton btnType="female" />
-    </div>
-  );
-}
+import Home from 'pages/Home';
+import Profile from 'pages/Profile';
+import Loading from 'pages/Loading';
+
+const App = () => (
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/profile" element={<Profile />} />
+    <Route path="/loading" element={<Loading />} />
+  </Routes>
+);
 
 export default App;

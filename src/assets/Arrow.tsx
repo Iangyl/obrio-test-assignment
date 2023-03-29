@@ -1,4 +1,4 @@
-import React, { memo, SVGProps } from 'react';
+import { memo, SVGProps } from 'react';
 
 const SVGComponent = (props: SVGProps<SVGSVGElement>) => (
   <svg
@@ -11,7 +11,7 @@ const SVGComponent = (props: SVGProps<SVGSVGElement>) => (
   >
     <path
       d="M7.5 12L15 4.5L16.05 5.55L9.6 12L16.05 18.45L15 19.5L7.5 12Z"
-      fill="#FAFAFA"
+      fill={props.fill ?? '#FAFAFA'}
     />
   </svg>
 );

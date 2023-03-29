@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { IButton } from './Button.types';
 
 import styles from './Button.module.sass';

@@ -1,0 +1,45 @@
+$padding: 9px 18px 9px 16px
+
+.customSelect
+  width: 100%
+  border: 1px solid var(--input-border-col)
+  border-radius: 20px
+  padding: $padding
+  background: transparent
+  .selectButton
+    display: flex
+    align-items: center
+    justify-content: space-between
+    gap: 18px
+    &:hover
+      cursor: pointer
+  .options
+    position: absolute
+    max-height: 130px
+    overflow-y: auto
+    overflow-x: hidden
+    background-color: var(--white-col)
+    margin-top: 12px
+    border: 1px solid var(--input-border-col)
+    border-radius: 20px
+    margin-left: -15px
+    &::-webkit-scrollbar
+      width: 0
+      height: 6px
+    &::-webkit-scrollbar-track
+      background-color: #f1f1f1
+    &::-webkit-scrollbar-thumb
+      background-color: #8E8CF0
+      border-radius: 3px
+    .option
+      padding: $padding
+      text-align: center
+      &:first-of-type
+        border-top-left-radius: 20px
+        border-top-right-radius: 20px
+      &:last-of-type
+        border-bottom-left-radius: 20px
+        border-bottom-right-radius: 20px
+      &:hover
+        cursor: pointer
+        background-color: var(--link-col)

@@ -20,6 +20,7 @@
         "@typescript-eslint"
     ],
     "rules": {
-      "quotes": [2, "single", "avoid-escape"]
+      "quotes": [2, "single", "avoid-escape"],
+      "react/react-in-jsx-scope": "off"
     }
 }
