@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-import { Gender, IState } from './user.types';
+import { DecisionCenter, Gender, IState } from './user.types';
 
 const initialState: IState = {
   gender: null,
   birthday: null,
   email: null,
+  details: {},
 };
 
 export const userSlice = createSlice({
@@ -22,9 +23,34 @@ export const userSlice = createSlice({
     setEmail: (state, action: PayloadAction<string>) => {
       state.email = action.payload;
     },
+    setRelationshipStatus: (state, action: PayloadAction<string>) => {
+      if (action.payload.toLowerCase() === 'single') {
+        state.details.relationshipStatus = 'single';
+      } else {
+        state.details.relationshipStatus = 'in_relationship';
+      }
+    },
+    setParentStatus: (state, action: PayloadAction<boolean>) => {
+      state.details.children = action.payload;
+    },
+    setUsersFeel: (state, action: PayloadAction<string>) => {
+      state.details.feel = action.payload;
+    },
+    setDecisionCenter: (state, action: PayloadAction<string>) => {
+      state.details.decision_center =
+        action.payload.toLowerCase() as DecisionCenter;
+    },
   },
 });
 
-export const { setBirthday, setGender, setEmail } = userSlice.actions;
+export const {
+  setBirthday,
+  setGender,
+  setEmail,
+  setRelationshipStatus,
+  setParentStatus,
+  setUsersFeel,
+  setDecisionCenter,
+} = userSlice.actions;
 
 export default userSlice.reducer;

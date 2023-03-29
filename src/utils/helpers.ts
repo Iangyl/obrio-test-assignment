@@ -1,3 +1,5 @@
+import { IAnswer } from 'hooks/useQuestions';
+
 export const getHoursList = () => {
   const hours = [];
   for (let i = 0; i <= 12; i++) {
@@ -19,4 +21,17 @@ export const getMinutesList = () => {
   }
 
   return minutes;
+};
+
+export const getValueFromAnswersArray = (
+  answer: string,
+  answers: IAnswer[]
+) => {
+  let result = '';
+
+  answers.forEach((item) => {
+    if (item.answer === answer) result = item.text;
+  });
+
+  return result;
 };
