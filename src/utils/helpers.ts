@@ -150,3 +150,12 @@ export const getAge = (date: string) => {
   }
   return age;
 };
+
+export const delay = (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
+
+export const capitalizeFirstLetter = (str?: string) => {
+  if (str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+};

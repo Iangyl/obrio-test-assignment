@@ -1,11 +1,15 @@
+import { IError } from 'pages/Summary';
 import Button from 'components/Button/Button';
 import EmailField from 'components/EmailField/EmailField';
+
 import styles from './SummaryBody.module.sass';
 
 const SummaryBody = ({
+  error,
   onClick,
   onChange,
 }: {
+  error: IError;
   onClick: () => void;
   onChange: (value: string) => void;
 }) => (
@@ -15,6 +19,9 @@ const SummaryBody = ({
     </h1>
     <div>
       <EmailField onChange={(event) => onChange(event.target.value)} />
+      <div className={`${styles.errorBlock} ${styles[error.status]}`}>
+        {error.text}
+      </div>
     </div>
     <p className={styles.paragraph}>
       *Nebula does not share any personal information. We&apos;ll email you a

@@ -1,5 +1,5 @@
 import { useAppSelector } from 'redux/hooks';
-import { getAge } from 'utils/helpers';
+import { capitalizeFirstLetter, getAge } from 'utils/helpers';
 import styles from './QuestionHead.module.sass';
 
 const QuestionHead = ({ question }: { question?: string }) => {
@@ -12,6 +12,10 @@ const QuestionHead = ({ question }: { question?: string }) => {
       <h1 className={styles.title}>
         {question
           ?.replace('{gender}', gender ?? 'gender')
+          .replace(
+            '{Gender}',
+            capitalizeFirstLetter(gender as string) ?? 'Gender'
+          )
           .replace(
             '{age}',
             getAge(birthDate ?? new Date().toString()).toString()

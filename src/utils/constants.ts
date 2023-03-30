@@ -17,19 +17,19 @@ export const answers = {
   ],
   second: [
     { answer: 'c', text: 'Yes' },
-    { answer: 'g', text: 'No' },
+    { answer: 'd', text: 'No' },
   ],
   third: [
-    { answer: 'd', text: 'Yes' },
-    { answer: 'h', text: 'No' },
+    { answer: 'e', text: 'Yes' },
+    { answer: 'f', text: 'No' },
   ],
   fourth: [
     {
-      answer: 'e',
+      answer: 'g',
       text: 'I was unhappy with low things were going in my relationship',
     },
     {
-      answer: 'f',
+      answer: 'h',
       text: 'I was unhappy with parts of my relationship, but some thing were working',
     },
     {
@@ -47,18 +47,18 @@ export const answers = {
       text: 'I’m very unhappy with how things are going in my relationship',
     },
     {
-      answer: 'o',
+      answer: 'l',
       text: 'I’m unhappy with parts of my relationship, but some things are working well',
     },
     {
-      answer: 'p',
+      answer: 'm',
       text: 'I’m generally happy in my relationship',
     },
   ],
   six: [
-    { answer: 'q', text: 'Heart' },
-    { answer: 'r', text: 'Head' },
-    { answer: 's', text: 'Both' },
+    { answer: 'n', text: 'Heart' },
+    { answer: 'o', text: 'Head' },
+    { answer: 'p', text: 'Both' },
   ],
 };
 
@@ -70,3 +70,5 @@ export enum APP_ROUTES {
   CONCLUSION = '/conclusion',
   SUMMARY = '/summary',
 }
+
+export const emailRegex = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;

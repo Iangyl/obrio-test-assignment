@@ -55,7 +55,7 @@ const useQuestions = () => {
         question: questions?.third,
         answers: answers?.third,
       });
-    } else if (answer === 'c' || answer === 'g') {
+    } else if (answer === 'c' || answer === 'd') {
       if (question) {
         dispatch(
           setParentStatus(getValueFromAnswersArray(answer, question?.answers))
@@ -65,7 +65,7 @@ const useQuestions = () => {
           answers: answers?.fourth,
         });
       }
-    } else if (answer === 'd' || answer === 'h') {
+    } else if (answer === 'e' || answer === 'f') {
       if (question) {
         dispatch(
           setParentStatus(getValueFromAnswersArray(answer, question?.answers))
@@ -76,10 +76,13 @@ const useQuestions = () => {
         });
       }
     } else if (
-      answer === 'e' ||
-      answer === 'f' ||
+      answer === 'g' ||
+      answer === 'h' ||
       answer === 'i' ||
-      answer === 'j'
+      answer === 'j' ||
+      answer === 'k' ||
+      answer === 'l' ||
+      answer === 'm'
     ) {
       if (question) {
         dispatch(
@@ -90,7 +93,7 @@ const useQuestions = () => {
           answers: answers?.six,
         });
       }
-    } else if (answer === 'k' || answer === 'o' || answer === 'p') {
+    } else if (answer === 'n' || answer === 'o' || answer === 'p') {
       if (question) {
         dispatch(
           setDecisionCenter(getValueFromAnswersArray(answer, question?.answers))
