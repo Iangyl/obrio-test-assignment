@@ -7,15 +7,11 @@ const QuestionBody = ({
   onAnswer,
 }: {
   answers?: IAnswer[];
-  onAnswer: (answer: string) => void;
+  onAnswer: (answer: IAnswer) => void;
 }) => (
   <div className={styles.questionBody}>
     {answers?.map((answer, idx) => (
-      <Button
-        key={idx}
-        btnType="common"
-        onClick={() => onAnswer(answer.answer)}
-      >
+      <Button key={idx} btnType="common" onClick={() => onAnswer(answer)}>
         {answer.text}
       </Button>
     ))}

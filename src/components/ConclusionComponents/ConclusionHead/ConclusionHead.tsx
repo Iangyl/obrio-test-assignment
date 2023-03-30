@@ -16,7 +16,7 @@ const ConclusionHead = () => {
   const birthday = useAppSelector((state) => state.birthday);
 
   const zodiacSign = useMemo(
-    () => getZodiacSign(birthday!),
+    () => getZodiacSign(birthday ?? new Date().toString()),
     [birthday, decisionCenter]
   );
 

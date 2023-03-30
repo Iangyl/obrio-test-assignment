@@ -1,24 +1,18 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-import useQuestions from 'hooks/useQuestions';
+import useQuestions, { IAnswer } from 'hooks/useQuestions';
 
 import PageWrapper from 'components/PageWrapper/PageWrapper';
 import QuestionBody from 'components/QuestionComponents/QuestionBody/QuestionBody';
 import QuestionHead from 'components/QuestionComponents/QuestionHead/QuestionHead';
-import { APP_ROUTES } from 'utils/constants';
 
 const Question = () => {
-  const navigate = useNavigate();
-  const { question, setAnswer } = useQuestions();
+  const location = useLocation();
+  const { question, setAnswer } = useQuestions(location.pathname);
 
-  const handleAnswer = (answer: string) => setAnswer(answer);
-
-  useEffect(() => {
-    if (question?.question === 'finish') {
-      navigate(APP_ROUTES.CONCLUSION); // next page
-    }
-  }, [question]);
+  const handleAnswer = (answer: IAnswer) => {
+    setAnswer(answer);
+  };
 
   return (
     <PageWrapper theme="light">

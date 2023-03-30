@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'redux/hooks';
 import {
   setDecisionCenter,
@@ -6,12 +7,12 @@ import {
   setRelationshipStatus,
   setUsersFeel,
 } from 'redux/user/userSlice';
-import { answers, questions } from 'utils/constants';
-import { getValueFromAnswersArray } from 'utils/helpers';
+import { answers, APP_ROUTES, questions } from 'utils/constants';
 
 export interface IAnswer {
   answer: string;
   text: string;
+  path: APP_ROUTES;
 }
 
 export interface IQuestion {
@@ -19,111 +20,102 @@ export interface IQuestion {
   answers: IAnswer[];
 }
 
-const useQuestions = () => {
+const useQuestions = (path: string) => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const [answer, setAnswer] = useState<string>('start');
+  const [answer, setAnswer] = useState<IAnswer>();
   const [question, setQuestion] = useState<IQuestion>();
 
+  const setAnswers = useCallback(() => {
+    switch (path) {
+      case APP_ROUTES.RELATIONSHIP_Q:
+        if (answer) {
+          dispatch(setRelationshipStatus(answer.text));
+          window.location.pathname = answer.path;
+        }
+        break;
+      case APP_ROUTES.PARENT_SINGLE_Q:
+        if (answer) {
+          dispatch(setParentStatus(answer?.text));
+          window.location.pathname = answer.path;
+        }
+        break;
+      case APP_ROUTES.PARENT_Q:
+        if (answer) {
+          dispatch(setParentStatus(answer?.text));
+          window.location.pathname = answer.path;
+        }
+        break;
+      case APP_ROUTES.LAST_RELATIONSHIP_Q:
+        if (answer) {
+          dispatch(setUsersFeel(answer?.text));
+          window.location.pathname = answer.path;
+        }
+        break;
+      case APP_ROUTES.DESCRIBING_STATEMENT_Q:
+        if (answer) {
+          dispatch(setUsersFeel(answer?.text));
+          window.location.pathname = answer.path;
+        }
+        break;
+      case APP_ROUTES.DECISION_CENTER_Q:
+        if (answer) {
+          dispatch(setDecisionCenter(answer?.text));
+          window.location.pathname = answer.path;
+        }
+        break;
+    }
+  }, [answer]);
+
   const getQuestion = useCallback(() => {
-    if (answer === 'start') {
-      setQuestion({
-        question: questions?.first,
-        answers: answers?.first,
-      });
-    } else if (answer === 'a') {
-      if (question) {
-        dispatch(
-          setRelationshipStatus(
-            getValueFromAnswersArray(answer, question?.answers)
-          )
-        );
+    switch (path) {
+      case APP_ROUTES.RELATIONSHIP_Q:
+        setQuestion({
+          question: questions?.first,
+          answers: answers?.first,
+        });
+        break;
+      case APP_ROUTES.PARENT_SINGLE_Q:
         setQuestion({
           question: questions?.second,
           answers: answers?.second,
         });
-      }
-    } else if (answer === 'b') {
-      if (question) {
-        dispatch(
-          setRelationshipStatus(
-            getValueFromAnswersArray(answer, question?.answers)
-          )
-        );
-      }
-      setQuestion({
-        question: questions?.third,
-        answers: answers?.third,
-      });
-    } else if (answer === 'c' || answer === 'd') {
-      if (question) {
-        dispatch(
-          setParentStatus(getValueFromAnswersArray(answer, question?.answers))
-        );
+        break;
+      case APP_ROUTES.PARENT_Q:
+        setQuestion({
+          question: questions?.third,
+          answers: answers?.third,
+        });
+        break;
+      case APP_ROUTES.LAST_RELATIONSHIP_Q:
         setQuestion({
           question: questions?.fourth,
           answers: answers?.fourth,
         });
-      }
-    } else if (answer === 'e' || answer === 'f') {
-      if (question) {
-        dispatch(
-          setParentStatus(getValueFromAnswersArray(answer, question?.answers))
-        );
+        break;
+      case APP_ROUTES.DESCRIBING_STATEMENT_Q:
         setQuestion({
           question: questions?.fifth,
           answers: answers?.fifth,
         });
-      }
-    } else if (
-      answer === 'g' ||
-      answer === 'h' ||
-      answer === 'i' ||
-      answer === 'j' ||
-      answer === 'k' ||
-      answer === 'l' ||
-      answer === 'm'
-    ) {
-      if (question) {
-        dispatch(
-          setUsersFeel(getValueFromAnswersArray(answer, question?.answers))
-        );
+        break;
+      case APP_ROUTES.DECISION_CENTER_Q:
         setQuestion({
           question: questions?.six,
           answers: answers?.six,
         });
-      }
-    } else if (answer === 'n' || answer === 'o' || answer === 'p') {
-      if (question) {
-        dispatch(
-          setDecisionCenter(getValueFromAnswersArray(answer, question?.answers))
-        );
-        setQuestion({
-          question: 'finish',
-          answers: [],
-        });
-      }
-    } else if (answer === 'q' || answer === 'r' || answer === 's') {
-      if (question) {
-        dispatch(
-          setDecisionCenter(getValueFromAnswersArray(answer, question?.answers))
-        );
-        setQuestion({
-          question: 'finish',
-          answers: [],
-        });
-      }
-    } else {
-      setQuestion({
-        question: questions.first,
-        answers: answers.first,
-      });
+        break;
     }
   }, [answer]);
 
   useEffect(() => {
+    setAnswers();
+  }, [answer, setAnswers]);
+
+  useEffect(() => {
     getQuestion();
-  }, [answer, getQuestion]);
+  }, [path, getQuestion]);
 
   return { question, setAnswer };
 };
