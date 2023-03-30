@@ -13,7 +13,7 @@ const PageWrapper: FC<IPageWrapper> = ({ children, theme }) => {
       <section className="wrapper" style={{ minHeight: 570 }}>
         {children}
       </section>
-      <Footer />
+      <Footer theme={theme} />
     </main>
   );
 };

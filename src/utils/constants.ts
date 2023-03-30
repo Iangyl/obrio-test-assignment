@@ -17,11 +17,11 @@ export const answers = {
   ],
   second: [
     { answer: 'c', text: 'Yes' },
-    { answer: 'c', text: 'No' },
+    { answer: 'g', text: 'No' },
   ],
   third: [
     { answer: 'd', text: 'Yes' },
-    { answer: 'd', text: 'No' },
+    { answer: 'h', text: 'No' },
   ],
   fourth: [
     {
@@ -29,36 +29,36 @@ export const answers = {
       text: 'I was unhappy with low things were going in my relationship',
     },
     {
-      answer: 'e',
+      answer: 'f',
       text: 'I was unhappy with parts of my relationship, but some thing were working',
     },
     {
-      answer: 'e',
+      answer: 'i',
       text: 'I was generally happy with my relationship',
     },
     {
-      answer: 'e',
+      answer: 'j',
       text: 'I’ve never been in a relationship',
     },
   ],
   fifth: [
     {
-      answer: 'e',
+      answer: 'k',
       text: 'I’m very unhappy with how things are going in my relationship',
     },
     {
-      answer: 'e',
+      answer: 'o',
       text: 'I’m unhappy with parts of my relationship, but some things are working well',
     },
     {
-      answer: 'e',
+      answer: 'p',
       text: 'I’m generally happy in my relationship',
     },
   ],
   six: [
-    { answer: 'f', text: 'Heart' },
-    { answer: 'f', text: 'Head' },
-    { answer: 'f', text: 'Both' },
+    { answer: 'q', text: 'Heart' },
+    { answer: 'r', text: 'Head' },
+    { answer: 's', text: 'Both' },
   ],
 };
 

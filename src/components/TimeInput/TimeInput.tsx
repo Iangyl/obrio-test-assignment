@@ -14,11 +14,8 @@ const TimeInput = ({ onChange }: { onChange: (args: Date) => void }) => {
   const yearsList = useMemo(() => getYearsList(), []);
 
   const getDate = useCallback(
-    (day: string, month: string, year: string) => {
-      const dateObj = new Date(Number(year), Number(month), Number(day));
-
-      return dateObj;
-    },
+    (day: string, month: string, year: string) =>
+      new Date(Number(year), Number(month) - 1, Number(day)),
     [day, month, year]
   );
 
@@ -29,13 +26,13 @@ const TimeInput = ({ onChange }: { onChange: (args: Date) => void }) => {
   return (
     <div className={styles.timeInput}>
       <div className={styles.timeChunkContainer}>
-        <TimeInputChunk options={yearsList} onSelect={setDay} />
+        <TimeInputChunk options={yearsList} onSelect={setYear} />
       </div>
       <div className={styles.timeChunkContainer}>
         <TimeInputChunk options={monthsList} onSelect={setMonth} />
       </div>
       <div className={styles.timeChunkContainer}>
-        <TimeInputChunk options={daysList} onSelect={setYear} />
+        <TimeInputChunk options={daysList} onSelect={setDay} />
       </div>
     </div>
   );

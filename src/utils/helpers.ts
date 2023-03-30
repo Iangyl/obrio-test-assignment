@@ -57,7 +57,8 @@ export const getValueFromAnswersArray = (
   return result;
 };
 
-export const getZodiacSign = (date: Date) => {
+export const getZodiacSign = (value: string) => {
+  const date = new Date(value);
   const month = date.getMonth() + 1;
   const day = date.getDate();
 
@@ -136,7 +137,7 @@ export const getZodiacSign = (date: Date) => {
   }
 };
 
-export const getAge = (date: Date) => {
+export const getAge = (date: string) => {
   const today = new Date();
   const birthDate = new Date(date);
   let age = today.getFullYear() - birthDate.getFullYear();

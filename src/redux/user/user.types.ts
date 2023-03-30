@@ -10,7 +10,7 @@ export interface IAnswers {
 
 export interface IState {
   gender: Gender | null;
-  birthday: Date | null;
+  birthday: string | null;
   email: string | null;
   details: IAnswers;
 }

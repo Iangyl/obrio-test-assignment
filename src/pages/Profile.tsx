@@ -17,7 +17,7 @@ const Profile = () => {
 
   const handleChange = (value: Date) => setDate(value);
   const handleClick = () => {
-    dispatch(setBirthday(date));
+    dispatch(setBirthday(date.toString()));
     navigate(APP_ROUTES.LOADING);
   };
 

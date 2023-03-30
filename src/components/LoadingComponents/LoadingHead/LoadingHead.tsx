@@ -11,7 +11,7 @@ const LoadingHead = () => {
   const gender = useAppSelector((state) => state.gender);
   const birthday = useAppSelector((state) => state.birthday);
   const zodiac = useMemo(
-    () => getZodiacSign(birthday ?? new Date()),
+    () => getZodiacSign(birthday ?? new Date().toString()),
     [birthday]
   );
 

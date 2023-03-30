@@ -14,7 +14,7 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setBirthday: (state, action: PayloadAction<Date>) => {
+    setBirthday: (state, action: PayloadAction<string>) => {
       state.birthday = action.payload;
     },
     setGender: (state, action: PayloadAction<Gender>) => {
@@ -30,8 +30,9 @@ export const userSlice = createSlice({
         state.details.relationshipStatus = 'in_relationship';
       }
     },
-    setParentStatus: (state, action: PayloadAction<boolean>) => {
-      state.details.children = action.payload;
+    setParentStatus: (state, action: PayloadAction<string>) => {
+      if (action.payload === 'Yes') state.details.children = true;
+      else if (action.payload === 'No') state.details.children = false;
     },
     setUsersFeel: (state, action: PayloadAction<string>) => {
       state.details.feel = action.payload;
