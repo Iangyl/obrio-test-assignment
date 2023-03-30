@@ -10,7 +10,9 @@ const PageWrapper: FC<IPageWrapper> = ({ children, theme }) => {
   return (
     <main className={`${styles.pageWrapper} ${styles[theme]}`}>
       <Header theme={theme === 'light' ? 'dark' : 'light'} />
-      <section className="wrapper">{children}</section>
+      <section className="wrapper" style={{ minHeight: 570 }}>
+        {children}
+      </section>
       <Footer />
     </main>
   );

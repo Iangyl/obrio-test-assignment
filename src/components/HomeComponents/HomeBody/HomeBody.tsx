@@ -1,14 +1,16 @@
 import GenderButton from 'components/GenderButton/GenderButton';
 
+import { Gender } from 'redux/user/user.types';
+
 import styles from './HomeBody.module.sass';
 
-const HomeBody = () => (
+const HomeBody = ({ onClick }: { onClick: (value: Gender) => void }) => (
   <div className={styles.homeBody}>
     <span>
-      <GenderButton btnType="male" />
+      <GenderButton btnType="male" onClick={() => onClick('male')} />
     </span>
     <span>
-      <GenderButton btnType="female" />
+      <GenderButton btnType="female" onClick={() => onClick('female')} />
     </span>
   </div>
 );

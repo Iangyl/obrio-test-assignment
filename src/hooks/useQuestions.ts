@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useAppDispatch } from 'redux/hooks';
+import { useAppDispatch, useAppSelector } from 'redux/hooks';
 import {
   setParentStatus,
   setRelationshipStatus,
   setUsersFeel,
 } from 'redux/user/userSlice';
 import { answers, questions } from 'utils/constants';
-import { getValueFromAnswersArray } from 'utils/helpers';
+import { getAge, getValueFromAnswersArray } from 'utils/helpers';
 
 export interface IAnswer {
   answer: string;
@@ -20,15 +20,19 @@ export interface IQuestion {
 
 const useQuestions = () => {
   const dispatch = useAppDispatch();
-  const [answer, setAnswer] = useState<string>('a');
+  const gender = useAppSelector((state) => state.gender);
+  const haveChildren = useAppSelector((state) => state.details.children);
+  const birthDate = useAppSelector((state) => state.birthday);
+
+  const [answer, setAnswer] = useState<string>('start');
   const [question, setQuestion] = useState<IQuestion>();
 
   const getQuestion = useCallback(() => {
     switch (answer) {
       case 'start':
         setQuestion({
-          question: questions.first,
-          answers: answers.first,
+          question: questions?.first,
+          answers: answers?.first,
         });
         break;
       case 'a':
@@ -39,8 +43,8 @@ const useQuestions = () => {
             )
           );
           setQuestion({
-            question: questions.second,
-            answers: answers.second,
+            question: questions?.second,
+            answers: answers?.second,
           });
         }
         break;
@@ -53,8 +57,8 @@ const useQuestions = () => {
           );
         }
         setQuestion({
-          question: questions.third,
-          answers: answers.third,
+          question: questions?.third,
+          answers: answers?.third,
         });
         break;
       case 'c':
@@ -67,8 +71,11 @@ const useQuestions = () => {
             )
           );
           setQuestion({
-            question: questions.fourth,
-            answers: answers.fourth,
+            question: questions?.fourth
+              .replace('{gender}', gender ?? 'gender')
+              .replace('{age}', getAge(birthDate ?? new Date()).toString())
+              .replace('{children}', haveChildren ? 'who have children' : ''),
+            answers: answers?.fourth,
           });
         }
         break;
@@ -82,8 +89,11 @@ const useQuestions = () => {
             )
           );
           setQuestion({
-            question: questions.fifth,
-            answers: answers.fifth,
+            question: questions?.fifth
+              .replace('{gender}', gender ?? 'gender')
+              .replace('{age}', getAge(birthDate ?? new Date()).toString())
+              .replace('{children}', haveChildren ? 'who have children' : ''),
+            answers: answers?.fifth,
           });
         }
         break;
@@ -93,15 +103,15 @@ const useQuestions = () => {
             setUsersFeel(getValueFromAnswersArray(answer, question?.answers))
           );
           setQuestion({
-            question: questions.six,
-            answers: answers.six,
+            question: questions?.six,
+            answers: answers?.six,
           });
         }
         break;
       case 'f':
         if (question) {
           setQuestion({
-            question: answer,
+            question: 'finish',
             answers: [],
           });
         }
@@ -119,7 +129,7 @@ const useQuestions = () => {
     getQuestion();
   }, [answer]);
 
-  return [question, setAnswer];
+  return { question, setAnswer };
 };
 
 export default useQuestions;

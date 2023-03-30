@@ -33,15 +33,19 @@ const TimeInputChunk = ({
       </div>
       {isOpen && (
         <ul className={styles.options}>
-          {options.map((option) => (
-            <li
-              className={styles.option}
-              key={option}
-              onClick={() => handleSelect(option)}
-            >
-              {option}
-            </li>
-          ))}
+          {options.map((option, idx) => {
+            if (idx !== 0) {
+              return (
+                <li
+                  className={styles.option}
+                  key={idx}
+                  onClick={() => handleSelect(option)}
+                >
+                  {option}
+                </li>
+              );
+            }
+          })}
         </ul>
       )}
     </div>

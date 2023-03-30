@@ -2,10 +2,10 @@ import TimeInput from 'components/TimeInput/TimeInput';
 
 import styles from './ProfileBody.module.sass';
 
-const ProfileBody = () => {
+const ProfileBody = ({ onChange }: { onChange: (value: Date) => void }) => {
   return (
     <div className={styles.profileBody}>
-      <TimeInput onChange={console.log} />
+      <TimeInput onChange={onChange} />
     </div>
   );
 };

@@ -9,11 +9,15 @@ import styles from './GenderButton.module.sass';
 
 const GenderButton = ({
   btnType,
+  onClick,
 }: {
   btnType: 'male' | 'female';
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }) => (
-  <button className={`${styles.genderBtn} ${styles[btnType]}`}>
+  <button
+    className={`${styles.genderBtn} ${styles[btnType]}`}
+    onClick={onClick}
+  >
     {btnType === 'male' ? (
       <ManIcon style={{ display: 'block' }} />
     ) : (

@@ -4,9 +4,9 @@ export const questions = {
   second: 'Are you a single parent?',
   third: 'Are you a parent?',
   fourth:
-    'Single {gender} {age} {who have children (if have children)} need a slightly different approach to find their perfect partner. But first, how did you feel in your last relationship?',
+    'Single {gender} {age} {children} need a slightly different approach to find their perfect partner. But first, how did you feel in your last relationship?',
   fifth:
-    '{Gender} {age} {who have children (if have children)} need a slightly different approach to improve their relationship. Which statement best describes you?',
+    '{Gender} {age} {children} need a slightly different approach to improve their relationship. Which statement best describes you?',
   six: 'Do you make decisions with your head or your heart?',
 };
 
@@ -61,3 +61,12 @@ export const answers = {
     { answer: 'f', text: 'Both' },
   ],
 };
+
+export enum APP_ROUTES {
+  HOME = '/',
+  PROFILE = '/profile',
+  LOADING = '/loading',
+  QUESTIONS = '/questions',
+  CONCLUSION = '/conclusion',
+  SUMMARY = '/summary',
+}

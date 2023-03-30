@@ -2,11 +2,11 @@ const ZodiacSpan = ({
   value,
   className,
 }: {
-  value: string;
+  value?: string;
   className?: string;
 }) => (
   <span className={className} style={{ color: '#F2C94C' }}>
-    {value}
+    {value ?? 'your zodiac sign'}
   </span>
 );
 

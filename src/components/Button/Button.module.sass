@@ -5,6 +5,8 @@
   --font-size: var(--btn-answer-text-size)
   --border: 1px solid transparent
   --padding: 12px 0
+  --background-hover: var(--primary-gradient)
+  --color-hover: var(--white-col)
 .filled
   --background: var(--ghost-white-col)
   --textColor: var(--text-violet-col)
@@ -12,6 +14,8 @@
   --font-size: var(--btn-control-text-size)
   --border: 1px solid transparent
   --padding: 14px 0
+  --background-hover: var(--ghost-white-col)
+  --color-hover: var(--text-violet-col)
 .gradient
   --background: var(--primary-gradient)
   --textColor: var(--white-col)
@@ -19,6 +23,8 @@
   --font-size: var(--btn-control-text-size)
   --border: 1px solid transparent
   --padding: 14px 0
+  --background-hover: var(--primary-gradient)
+  --color-hover: var(--white-col)
 .outlined
   --background: var(--transparent-col)
   --textColor: var(--ghost-white-col)
@@ -26,6 +32,8 @@
   --font-size: var(--btn-control-text-size)
   --border: 1px solid var(--ghost-white-col)
   --padding: 14px 0
+  --background-hover: var(--transparent-col)
+  --color-hover: var(--ghost-white-col)
 
 .button
   display: flex
@@ -41,3 +49,5 @@
   padding: var(--padding)
   &:hover
     cursor: pointer
+    background: var(--background-hover)
+    color: var(--color-hover)
