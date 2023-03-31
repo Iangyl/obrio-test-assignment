@@ -14,7 +14,7 @@ const Conclusion = () => {
   if (location.pathname === '/conclusion') theme = 'dark';
 
   const handleNext = () => navigate(APP_ROUTES.SUMMARY);
-  const handleBack = () => navigate(APP_ROUTES.QUESTIONS);
+  const handleBack = () => navigate(-1);
 
   return (
     <PageWrapper theme={theme}>

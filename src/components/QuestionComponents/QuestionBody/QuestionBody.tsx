@@ -1,5 +1,5 @@
 import Button from 'components/Button/Button';
-import { IAnswer } from 'hooks/useQuestions';
+import { IAnswer } from 'redux/user/user.types';
 import styles from './QuestionBody.module.sass';
 
 const QuestionBody = ({
@@ -7,15 +7,11 @@ const QuestionBody = ({
   onAnswer,
 }: {
   answers?: IAnswer[];
-  onAnswer: (answer: string) => void;
+  onAnswer: (answer: IAnswer) => void;
 }) => (
   <div className={styles.questionBody}>
     {answers?.map((answer, idx) => (
-      <Button
-        key={idx}
-        btnType="common"
-        onClick={() => onAnswer(answer.answer)}
-      >
+      <Button key={idx} btnType="common" onClick={() => onAnswer(answer)}>
         {answer.text}
       </Button>
     ))}

@@ -16,7 +16,10 @@ const Loading = () => {
   if (location.pathname === '/loading') theme = 'dark';
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => navigate(APP_ROUTES.QUESTIONS), 3000);
+    const timeoutId = setTimeout(
+      () => navigate(APP_ROUTES.RELATIONSHIP_Q),
+      3000
+    );
     return () => clearTimeout(timeoutId);
   }, []);
 
