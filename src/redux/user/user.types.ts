@@ -1,3 +1,5 @@
+import { APP_ROUTES } from 'utils/constants';
+
 export type Gender = 'male' | 'female';
 export type DecisionCenter = 'heart' | 'head' | 'both';
 
@@ -13,4 +15,15 @@ export interface IState {
   birthday: string | null;
   email: string | null;
   details: IAnswers;
+}
+
+export interface IAnswer {
+  answer: string;
+  text: string;
+  path: APP_ROUTES;
+}
+
+export interface IQuestion {
+  question: string;
+  answers: IAnswer[];
 }

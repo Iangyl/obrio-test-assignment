@@ -1,5 +1,5 @@
 import Button from 'components/Button/Button';
-import { IAnswer } from 'hooks/useQuestions';
+import { IAnswer } from 'redux/user/user.types';
 import styles from './QuestionBody.module.sass';
 
 const QuestionBody = ({

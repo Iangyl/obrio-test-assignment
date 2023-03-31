@@ -8,7 +8,6 @@ export enum APP_ROUTES {
   /* Question pages */
 
   RELATIONSHIP_Q = '/questions/relationship_status',
-  PARENT_SINGLE_Q = '/questions/single_parent',
   PARENT_Q = '/questions/parent',
   LAST_RELATIONSHIP_Q = '/questions/last_relationship',
   DESCRIBING_STATEMENT_Q = '/questions/describe_yourself',
@@ -29,7 +28,7 @@ export const questions = {
 
 export const answers = {
   first: [
-    { answer: 'a', text: 'Single', path: APP_ROUTES.PARENT_SINGLE_Q },
+    { answer: 'a', text: 'Single', path: APP_ROUTES.PARENT_Q },
     { answer: 'b', text: 'In a relationship', path: APP_ROUTES.PARENT_Q },
   ],
   second: [

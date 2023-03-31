@@ -1,4 +1,4 @@
-import { IAnswer } from 'hooks/useQuestions';
+import { IAnswer } from 'redux/user/user.types';
 
 export const getYearsList = () => {
   const years = [];
